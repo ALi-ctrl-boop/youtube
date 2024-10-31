@@ -15,6 +15,20 @@ export type IVideo = {
 	}
 }
 
+export type IChannelInfo = {
+	id: {
+		videoId: string
+	}
+	snippet: {
+	channelTitle?: string
+		thumbnails: {
+			default: {
+				url: string
+			}
+		}
+	}
+}
+
 export type ISubs = {
 	id: number | string | undefined
 	label: string
@@ -29,7 +43,7 @@ export type INotification = {
 }
 
 export type IHistory = {
-	id: {	
+	id: {
 		videoId: string
 	}
 	snippet: {

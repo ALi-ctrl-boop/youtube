@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import { useAppDispatch } from '../hook/redux'
 import { getId } from '../shared/utils/api/getId'
 import { hanldeAddSub } from '../store/slice/sliceSub'
 import { KEY_API } from '../store/slice/sliceVideo'
-import { ISubs, IVideo } from '../types'
+import { IChannelInfo, ISubs, IVideo } from '../types'
 import { ModalWindows } from './ModalWindows'
 import { VideoComment } from './VideoComment'
-import { ToastContainer } from 'react-toastify'
 
 export const VideoSource = () => {
 	const [videoId, setVideoId] = useState<IVideo | null>(null)
@@ -16,7 +16,7 @@ export const VideoSource = () => {
 	const [showModalHref, setShowModalHref] = useState(false)
 	const params = useParams()
 	const [channelId, setChannelId] = useState('')
-	const [channelInfo, setChannelInfo] = useState(null)
+	const [channelInfo, setChannelInfo] = useState<IChannelInfo | null>(null)
 
 	const dispatch = useAppDispatch()
 
@@ -46,6 +46,7 @@ export const VideoSource = () => {
 			icon: channelInfo?.snippet.thumbnails.default.url || '',
 			href: `/channel/${channelId}`,
 		}
+
 		dispatch(hanldeAddSub(object))
 	}
 
@@ -119,7 +120,7 @@ export const VideoSource = () => {
 
 				<VideoComment />
 			</div>
-			<ToastContainer/>
+			<ToastContainer />
 		</>
 	)
 }
