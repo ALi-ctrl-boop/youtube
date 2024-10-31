@@ -1,0 +1,9 @@
+AIzaSyCx1MWM5TmRcaNLHrOgVy8IqjHSgpzkZRg
+
+
+
+curl \
+  'https://youtube.googleapis.com/youtube/v3/search?key=[YOUR_API_KEY]' \
+  --header 'Authorization: Bearer [YOUR_ACCESS_TOKEN]' \
+  --header 'Accept: application/json' \
+  --compressed
